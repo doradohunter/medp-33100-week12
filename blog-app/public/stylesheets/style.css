@@ -1,6 +1,11 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+    flex-direction: column;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 a {
@@ -9,5 +14,13 @@ a {
 
 .post {
   border: 1px solid black;
+  padding: 20px;
+}
+
+#post_form {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 20px;
 }

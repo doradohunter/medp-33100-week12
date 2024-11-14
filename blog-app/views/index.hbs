@@ -1,11 +1,19 @@
+<form id="post_form">
+    <h2>Create a new post</h2>
+    <input type="text" name="title" placeholder="Title">
+    <textarea name="content" placeholder="Content" rows="4"></textarea>
+    <input type="submit" value="Create Post">
+</form>
+
 <h1>{{title}}</h1>
 {{#each posts}}
     <div class="post">
         <h2>{{this.title}}</h2>
         <p>{{this.content}}</p>
-<!--        <p>{{this.authorID}}</p>-->
         {{#each this.authors}}
             <p>By @{{this.username}}</p>
         {{/each}}
     </div>
 {{/each}}
+
+
