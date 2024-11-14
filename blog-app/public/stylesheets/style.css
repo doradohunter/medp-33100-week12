@@ -24,3 +24,17 @@ a {
   gap: 10px;
   padding: 20px;
 }
+
+.comment_form {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.comment_form input[type="text"] {
+  flex: 1;
+}
+
+.comment {
+  margin-left: 20px;
+}

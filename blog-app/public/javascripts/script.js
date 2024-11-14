@@ -21,4 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const posts = document.querySelectorAll('.post');
+    posts.forEach(post => {
+        const postID = post.id;
+        const commentForm = post.querySelector('.comment_form');
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(commentForm);
+            const content = formData.get('content');
+            const comment = {
+                postID: postID,
+                authorID: '67354d9ae9a39ec7d653d375',
+                content
+            };
+            console.log(comment);
+            commentForm.reset();
+            fetch('/comments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(comment)
+            });
+        });
+    });
+
 });

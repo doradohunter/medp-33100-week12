@@ -7,12 +7,25 @@
 
 <h1>{{title}}</h1>
 {{#each posts}}
-    <div class="post">
+    <div class="post" id="{{this._id}}">
         <h2>{{this.title}}</h2>
         <p>{{this.content}}</p>
         {{#each this.authors}}
             <p>By @{{this.username}}</p>
         {{/each}}
+        <h3>Comments</h3>
+        {{#each this.comments}}
+            <div class="comment">
+                <p>{{this.content}}</p>
+                {{#each this.authors}}
+                    <p>By @{{this.username}}</p>
+                {{/each}}
+            </div>
+        {{/each}}
+        <form class="comment_form">
+            <input type="text" name="content" placeholder="Comment">
+            <input type="submit" value="Add Comment">
+        </form>
     </div>
 {{/each}}
 
