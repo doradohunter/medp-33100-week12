@@ -1,0 +1,17 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.employee{
+  border: 5px double deepskyblue;
+  padding: 15px;
+}
