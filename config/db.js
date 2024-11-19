@@ -1,4 +1,3 @@
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://erika6776:Np2y4YdmPAXMCcap@cluster0.xs1p3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -17,7 +16,8 @@ async function connectToDatabase() {
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-    const db = client.db("test");
+    const db = client.db("test"); 
+    console.log("Test has been connected!");
     return db;
   } catch (error) {
     console.error("Error connecting to the database:", error);
