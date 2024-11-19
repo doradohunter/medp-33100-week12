@@ -9,23 +9,21 @@
   </head>
   <body>
     <h1>Animal Fun Facts</h1>
-<ul class="animal-list">
-  {{#each animals}}
-    <li class="animal-item">
-      <p>Name: {{this.name}}</p>
-      <p>Habitat: 
-        {{#if this.habitatDetails.length}}
-          {{this.habitatDetails.0.habitatName}} 
-        {{else}}
-          N/A
-        {{/if}}
-      </p>
-      <p>Fun Fact: {{this.funFact}}</p>
-    </li>
-  {{/each}}
-</ul>
-
-
+    <ul class="animal-list">
+      {{#each animals}}
+        <li class="animal-item">
+          <p>Name: {{this.name}}</p>
+          <p>Habitat: 
+            {{#if this.habitatDetails.length}}
+              {{this.habitatDetails.0.habitatName}} 
+            {{else}}
+              N/A
+            {{/if}}
+          </p>
+          <p>Fun Fact: {{this.funFact}}</p>
+        </li>
+      {{/each}}
+    </ul>
     <script src="/javascripts/script.js"></script>
   </body>
 </html>

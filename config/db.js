@@ -17,7 +17,6 @@ async function connectToDatabase() {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
     const db = client.db("test"); 
-    console.log("Test has been connected!");
     return db;
   } catch (error) {
     console.error("Error connecting to the database:", error);
