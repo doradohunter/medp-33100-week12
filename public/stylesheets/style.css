@@ -14,4 +14,5 @@ a {
 .employee{
   border: 5px double deepskyblue;
   padding: 15px;
+  margin-bottom: 10px;
 }
