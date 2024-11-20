@@ -1,10 +1,3 @@
-<form id="post_form">
-    <h2>Create a new post</h2>
-    <input type="text" name="title" placeholder="Title">
-    <textarea name="content" placeholder="Content" rows="4"></textarea>
-    <input type="submit" value="Create Post">
-</form>
-
 <h1>{{title}}</h1>
 {{#each posts}}
     <div class="post" id="{{this._id}}">
@@ -22,11 +15,5 @@
                 {{/each}}
             </div>
         {{/each}}
-        <form class="comment_form">
-            <input type="text" name="content" placeholder="Comment">
-            <input type="submit" value="Add Comment">
-        </form>
     </div>
 {{/each}}
-
-
