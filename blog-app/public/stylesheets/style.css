@@ -4,7 +4,7 @@ body {
   display: flex;
     flex-direction: column;
   gap: 10px;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -15,6 +15,10 @@ a {
 .post {
   border: 1px solid black;
   padding: 20px;
+}
+
+.post img {
+  width: 100%;
 }
 
 #post_form {

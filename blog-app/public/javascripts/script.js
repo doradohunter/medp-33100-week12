@@ -1,25 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#post_form');
+    form.addEventListener('submit', async (e) => {
+        console.log('submitted');
+        e.preventDefault();
 
-    form.addEventListener('submit', (e) => {
+        const submitButton = form.querySelector('#submit_button');
+        submitButton.disabled = true;
+        submitButton.innerHTML = 'Uploading...';
+
         const formData = new FormData(form);
-        const title = formData.get('title');
-        const content = formData.get('content');
-        const post = {
-            title,
-            content,
-            authorID: '67354d9ae9a39ec7d653d375',
-        };
-        console.log(post);
-        form.reset();
-        fetch('/posts', {
+
+        await fetch('/posts', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(post)
+            body: formData
         });
-    });
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Submit';
+    })
 
     const posts = document.querySelectorAll('.post');
     posts.forEach(post => {

@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const connectToDatabase = require('./config/db');
-
+const cloudinary = require('./config/cloudinary');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -17,6 +17,11 @@ const app = express();
 connectToDatabase().then((db) => {
   app.locals.db = db;  // Store db instance in app locals for access in routes
 });
+
+cloudinary.connectToCloudinary()
+    .then((cloudinary) => {
+      app.locals.cloudinary = cloudinary;
+    })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

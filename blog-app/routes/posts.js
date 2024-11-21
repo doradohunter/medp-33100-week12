@@ -1,6 +1,8 @@
-var express = require('express');
+const express = require('express');
 const {ObjectId, Timestamp} = require("mongodb");
-var router = express.Router();
+const router = express.Router();
+const multer = require('multer');
+const cloudinary = require('../config/cloudinary');
 
 // GET all posts
 router.get('/', async function (req, res, next) {
@@ -21,24 +23,23 @@ router.get('/', async function (req, res, next) {
 });
 
 // POST a new post
-router.post('/', async function (req, res, next) {
+router.post('/', multer().single('image'), cloudinary.uploadToCloudinary, async function (req, res) {
+    console.log(req.body);
     try {
-        const db = req.app.locals.db;  // Access the shared database instance
-        const post = req.body;
-        console.log(post);
-
+        const db = req.app.locals.db;
         const newPost = {
-            title: post.title,
-            content: post.content,
-            authorID: new ObjectId(post.authorID),
+            title: req.body.title,
+            content: req.body.content,
+            imageUrl: req.file.cloudinaryUrl,
+            authorID: new ObjectId(req.body.authorID),
             createdAt: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 }),
-        };
-
-        await db.collection('posts').insertOne(newPost);
-        res.send('Created new post');
+        }
+        await db.collection('posts')
+            .insertOne(newPost)
+        res.send('Successfully created post');
     } catch (error) {
-        next(error);
+        console.log(error);
     }
-});
+})
 
 module.exports = router;

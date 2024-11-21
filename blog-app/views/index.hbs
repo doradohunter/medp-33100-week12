@@ -1,8 +1,9 @@
 <form id="post_form">
     <h2>Create a new post</h2>
     <input type="text" name="title" placeholder="Title">
+    <input type="file" id="image_input" name="image" accept="image/*">
     <textarea name="content" placeholder="Content" rows="4"></textarea>
-    <input type="submit" value="Create Post">
+    <input id="submit_button" type="submit" value="Create Post">
 </form>
 
 <h1>{{title}}</h1>
@@ -10,6 +11,9 @@
     <div class="post" id="{{this._id}}">
         <h2>{{this.title}}</h2>
         <p>{{this.content}}</p>
+        {{#if this.imageUrl}}
+            <img src="{{this.imageUrl}}" alt="Post image" />
+        {{/if}}
         {{#each this.authors}}
             <p>By @{{this.username}}</p>
         {{/each}}
