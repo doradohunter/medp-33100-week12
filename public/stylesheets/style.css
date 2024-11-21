@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.book{
+  background-color: antiquewhite;
+  border-radius: 5px;
+  border: black;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.book h2{
+  background-color: #dfa6a6;
+  width: 100%;
+}
+
+.book img{
+  width: 50%;
+}
+
+li{
+  list-style: none;
+}

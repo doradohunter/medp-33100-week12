@@ -1,0 +1,15 @@
+<h1> Our {{title}}</h1>
+<p>Welcome to the {{title}} Database</p>
+
+{{#each books}}
+    <div class="book">
+        <h2>{{this.title}}</h2>
+        <img src="/images/error-image.jpg">
+        <p>By: {{this.author}}</p>
+        <p>Copies Available: {{this.availableCopies}}</p>
+    </div>
+    <h3>Borrowers: </h3>
+    {{#each borrowers}}
+        <li>{{name}}</li>
+    {{/each}}
+{{/each}}
