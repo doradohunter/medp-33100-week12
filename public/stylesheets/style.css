@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 * {
-  color: #01823E;
+  background-color: #01823E;
+  font-family: Luckiest Guy;
 }
 
 .album_container {
