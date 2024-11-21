@@ -1,0 +1,12 @@
+<h1 class='title'>{{title}}</h1>
+
+<div class='habits'>
+  {{#each habits}}
+    <div class='each-habit'>
+      <h2>{{this.activity}}</h2>
+      <p>{{this.category}}</p>
+      <p>{{this.descripition}}</p>
+      <p>Frequency per week: {{this.frequency}}</p>
+    </div>
+  {{/each}}
+</div>
