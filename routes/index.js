@@ -6,7 +6,10 @@ router.get('/', async function (req, res, next) {
   try {
     const db = req.app.locals.db;
     const habits = await db.collection('habits').find().toArray();
-    res.render('index', { title: 'Express', habits: habits });
+    res.render('index', {
+      title: 'Habit Tracker',
+      habits: habits,
+    });
   } catch (error) {
     console.log(error);
   }
