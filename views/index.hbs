@@ -1,0 +1,10 @@
+<h1>Welcome to {{title}}</h1>
+
+
+{{#each album}}
+    <div class="album_container">
+        <h2>{{this.title}}<br></h2>
+        <p>Featuring:{{this.featuring}} <br></p>
+        <p>Length: {{this.length}}<br></p>
+    </div>
+    {{/each}}
