@@ -1,0 +1,12 @@
+<h1>Green Day Albums</h1>
+
+<div class="container"></div>
+{{#each albums}}
+        <div class="album" style="background-color: {{this.color}}">
+            <img src="{{this.url}}">
+            <h1>{{this.title}}</h1>
+            <h3>Release Date: {{this.release_date}}</h3>
+            <h3>Tracks: {{this.tracks}}</h3>
+        </div>
+{{/each}} 
+</div>
