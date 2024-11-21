@@ -1,2 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Welcome to {{title}}!</h1>
+
+<h2>Knights</h2>
+{{#each knights}}
+    <div class="knights">
+        <h2>{{this.name}}</h2>
+        <p>Birthday: {{this.birthday}}</p>
+        <p>{{this.about}}</p>
+        <div class="from">
+            <p>{{this.from}}</p>
+        </div>
+    </div>
+{{/each}}
