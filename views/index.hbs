@@ -1,150 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essence - Ecommerce Candle Shop W/ DB</title>
+<header>
+    <div class="brand_image"></div>
+    <div class="blank">
+        <ul class="nav">
+            <img class="hamburger" src="https://www.svgrepo.com/show/520763/hamburger.svg" width="40">
+            <div class="side">
+                <li>About</li>
+                <li>Shop</li>
+            </div>
+            <li class="brand">ESSENCE</li>
+            <div class="side">
+                <li>Cart</li>
+                <li>Login</li>
+            </div>
+        </ul>
+        <div class="branding">
+            <h1><i>Set</i> the mood.</h1>
+            <p>Revolutionalizing the way you breathe</p>
+            <p class="btn">Shop now</p>
+        </div>
+    </div>
+</header>
 
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <header>
-        <div class="brand_image"></div>
-        <div class="blank">
-            <ul class="nav">
-                <img class="hamburger" src="https://www.svgrepo.com/show/520763/hamburger.svg" width="40">
-                <div class="side">
-                    <li>About</li>
-                    <li>Shop</li>
-                </div>
-                <li class="brand">ESSENCE</li>
-                <div class="side">
-                    <li>Cart</li>
-                    <li>Login</li>
-                </div>
-            </ul>
-            <div class="branding">
-                <h1><i>Set</i> the mood.</h1>
-                <p>Revolutionalizing the way you breathe</p>
-                <p class="btn">Shop now</p>
+<div class="about">
+    <div class="blank" id="b_grid">
+        <h1><span class="smaller">OUR</span><br/>CANDLES</h1>
+    </div>
+    <div class="about_image"></div>
+    <div class="about_content">
+        <div class="about_desc">
+            <h3>Our Mission</h3>
+            <p>We strive ourselves on bringing <b>quality goodness</b> to your spaces.
+            Our products are guarenteed to bring out the potential in every corner. What are you waiting
+            for? Get an <i class="brand">ESSENCE</i>!</p>
+        </div>
+        <div class="about_two">
+            <div class="good" id="g1">
+                <p>Naturally Sourced</p>
+                <img src="https://www.svgrepo.com/show/476601/leaf.svg" width="80px">
+            </div>
+            <div class="good" id="g2">
+                <p>Non Toxic</p>
+                <img src="https://www.svgrepo.com/show/476569/drop.svg" width="80px">
+            </div>
+            <div class="good" id="g3">
+                <p>ASTM Verified</p>
+                <img src="https://www.svgrepo.com/show/476607/like2.svg" width="80px">
             </div>
         </div>
-    </header>
-
-    <div class="about">
-        <div class="blank" id="b_grid">
-            <h1><span class="smaller">OUR</span><br/>CANDLES</h1>
-        </div>
-        <div class="about_image"></div>
-        <div class="about_content">
-            <div class="about_desc">
-                <h3>Our Mission</h3>
-                <p>We strive ourselves on bringing <b>quality goodness</b> to your rooms.
-                Our products are guarenteed to bring out the potential in every corner. What are you waiting
-                for? Get an <i class="brand">ESSENCE</i>!</p>
-            </div>
-            <div class="about_two">
-                <div class="good" id="g1">
-                    <p>Naturally Sourced</p>
-                    <img src="https://www.svgrepo.com/show/476601/leaf.svg" width="80px">
-                </div>
-                <div class="good" id="g2">
-                    <p>Non Toxic</p>
-                    <img src="https://www.svgrepo.com/show/476569/drop.svg" width="80px">
-                </div>
-                <div class="good" id="g3">
-                    <p>ASTM Verified</p>
-                    <img src="https://www.svgrepo.com/show/476607/like2.svg" width="80px">
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <div class="shop">
-        <div class="section">
-            <div class="candle" id="label">
-                <div class="row_description">
-                    <h3>Top Shelf</h3>
-                    <p>We supply only the best to our customers</p>
-                </div>
-                    <b class="more">SEE ALL</b>
-            </div>
-            <div class="candle" id="shopCandle">
-                {{#each products}}
-                    <div class="col">
-                        <div class="incentive" id="{{this.category}}">{{this.category}}</div>
-                        <img class="shop_image" src="https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-                        <div class="pDets">
-                            <small class="stock">{{this.stock}} left in stick</small>
-                            <small class="name">{{this.rating}} <img src="https://www.svgrepo.com/show/513408/star.svg" width="10px"></small>
-                        </div>
-                        <div class="item">
-                            <div class="item_detail">
-                                <p class="name">{{this.name}}</p>
-                                <p class="price">${{this.price}}</p>
-                            </div>
-                            <img class="cart" src="https://www.svgrepo.com/show/379633/shopping-cart.svg">
-                        </div>
+</div>
+
+<div class="shop">
+    <div class="section">
+        <div class="candle" id="label">
+            <div class="row_description">
+                <h3>Shopping Cart</h3>
+                <p class="empty_cart">Your cart is empty.</p>
+
+                {{!-- <div class="added_items">
+                    <div class="added_item_description" id="pd">
+                        <h4>Product Name</h4>
+                        <p>Qauntity: 1</p>
                     </div>
-                {{/each}}
+                    <div class="added_item_description">
+                        <img src="https://www.svgrepo.com/show/502812/remove.svg" width="30px">
+                        <p>$20</p>
+                    </div>
+                </div> --}}
+
             </div>
-
-            {{!-- <div class="checkout">
-                <h2 class="candleName"></h2>
-                <p class="candleRate"><img src="https://www.svgrepo.com/show/475275/star.svg" width="30px"></p>
-                <div class="desc">
-                    <p class="candlePrice"></p>
+                <b class="more">PURCHASE</b>
+        </div>
+        <div class="candle" id="shopCandle">
+            {{#each products}}
+                <div class="col" id="{{this._id}}">
+                    {{#each this.label}}
+                        <div class="incentive" id="{{this.label}}">{{this.label}}</div>
+                    {{/each}}
+                    <img class="shop_image" src="https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                    <div class="pDets">
+                        <small class="stock">{{this.stock}} left in stock</small>
+                        <small class="rate">{{this.rating}} <img src="https://www.svgrepo.com/show/513408/star.svg" width="10px"></small>
+                    </div>
+                    <div class="item">
+                        <div class="item_detail">
+                            <p class="name">{{this.name}}</p>
+                            <p class="price">${{this.price}}</p>
+                        </div>
+                        <img class="cart" src="https://www.svgrepo.com/show/379633/shopping-cart.svg">
+                    </div>
                 </div>
-            </div> --}}
+            {{/each}}
+        </div>
 
+</div>
+
+<footer>
+    <div class="newsletter">
+        <h1>DON'T MISS OUT</h1>
+        <p>Subscribe to our newsletter to get updated on our latest products and sales!</p>
+        <div class="subscribe">
+            <input placeholder="Email address">
+            <p class="signup">Sign Up</p>
+        </div>
     </div>
-
-    <footer>
-        <div class="newsletter">
-            <h1>DON'T MISS OUT</h1>
-            <p>Subscribe to our newsletter to get updated on our latest products and sales!</p>
-            <div class="subscribe">
-                <input placeholder="Email address">
-                <p class="signup">Sign Up</p>
+    <div class="foot">
+        <div class="company">
+            <ul class="company_legality">
+                <li class="c_label">Company</li>
+                <li>About</li>
+                <li>Shop</li>
+                <li>Career</li>
+                <li>Newsletter</li>
+            </ul>
+            <ul class="company_legality" id="col2">
+                <li class="c_label">Legal</li>
+                <li>Privacy</li>
+                <li>Terms</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="morefoot">
+            <div class="socials">
+                <img src="https://www.svgrepo.com/show/521711/instagram.svg" width="30px">
+                <img src="https://www.svgrepo.com/show/473806/tiktok.svg" width="30px">
+                <img src="https://www.svgrepo.com/show/447137/github-fill.svg" width="30px">
+            </div>
+            <div class="other">
+                <p class="c_label c_labelnum">FAX <br/><span class="number">123-45678</span></p>
+                <p class="c_label c_labelnum">Telephone <br/><span  class="number">123-456-7890</span></p>
             </div>
         </div>
-        <div class="foot">
-            <div class="company">
-                <ul class="company_legality">
-                    <li class="c_label">Company</li>
-                    <li>About</li>
-                    <li>Shop</li>
-                    <li>Career</li>
-                    <li>Newsletter</li>
-                </ul>
-                <ul class="company_legality" id="col2">
-                    <li class="c_label">Legal</li>
-                    <li>Privacy</li>
-                    <li>Terms</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-            <div class="morefoot">
-                <div class="socials">
-                    <img src="https://www.svgrepo.com/show/521711/instagram.svg" width="30px">
-                    <img src="https://www.svgrepo.com/show/473806/tiktok.svg" width="30px">
-                    <img src="https://www.svgrepo.com/show/447137/github-fill.svg" width="30px">
-                </div>
-                <div class="other">
-                    <p class="c_label c_labelnum">FAX <br/><span class="number">123-45678</span></p>
-                    <p class="c_label c_labelnum">Telephone <br/><span  class="number">123-456-7890</span></p>
-                </div>
-            </div>
-            
-        </div>
-        <p class="copyright">&copy; 2024 ESSENCE Inc. All rights reserved</p>
-    </footer>
-
-    <script src="/javascripts/script.js"></script>
-</body>
-</html>
+        
+    </div>
+    <p class="copyright">&copy; 2024 ESSENCE Inc. All rights reserved</p>
+</footer>

@@ -13,6 +13,7 @@ ul.nav, .side{
   justify-content: space-between;
 }
 .hamburger{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7479%) hue-rotate(12deg) brightness(101%) contrast(105%);
   display: none;
 }
 .side{
@@ -157,7 +158,7 @@ header{
   align-items: center;
   text-align: center;
 }
-.good img{
+.good img, .added_item_description img{
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7479%) hue-rotate(12deg) brightness(101%) contrast(105%);
 }
 
@@ -170,6 +171,29 @@ header{
   display: inline-flex;
   flex-wrap: wrap;
 }
+.added_items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
+  box-shadow: rgba(0, 0, 0, 0.041) 0px 1px 3px 2px;
+  transition: .3s ease;
+  cursor: pointer;
+}
+.added_items:hover{
+  background-color: #ad9f93;
+}
+.added_item_description p{
+  margin: 0;
+}.added_item_description h4{
+  margin: 0%;
+  margin-bottom: 10%;
+}.added_item_description img{
+  transition: .3s ease;
+}.added_items:hover img{
+  filter: brightness(0) saturate(100%) invert(7%) sepia(99%) saturate(7477%) hue-rotate(18deg) brightness(83%) contrast(114%);
+}
+
 #shopCandle{
   width: 75%;
 }
@@ -197,11 +221,10 @@ header{
   align-self: start;
   text-align: start;
   padding: 0%;
-}
-#label{
   cursor: default;
   color: white;
   background-color: #A5978B;
+  width: 25%;
 }
 .row_description{
   padding: 5%;
