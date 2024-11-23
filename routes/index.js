@@ -2,9 +2,9 @@ var express = require('express');
 const { ObjectId, Timestamp } = require('mongodb');
 var router = express.Router();
 
-/* GET home page. */
+/* GET shop*/
 router.get('/', async function(req, res, next) {
-  
+  //GET candles
   try{
     const db = req.app.locals.db;
     const products = await db.collection('products')
@@ -19,33 +19,26 @@ router.get('/', async function(req, res, next) {
         }
       ])
       .toArray()
-    res.render('index', { products: products });
+
+  //GET cart items
+      const cartItems = await db.collection('cart')
+        .aggregate([
+          {
+            $lookup: {
+              from: 'products'
+              ,foreignField: '_id'
+              ,localField: 'productID'
+              ,as: 'product'
+            }
+          }
+        ])
+        .toArray()
+
+    res.render('index', { products: products, cartItems: cartItems });
 
   }catch (error) {
     console.log(error)
   }
-});
-
-router.post('/', async function (req, res, next) {
-  console.log('MAKING POST REQUEST')
-  console.log(req.body)
-  // try {
-  //     const db = req.app.locals.db;  // Access the shared database instance
-  //     const post = req.body;
-  //     console.log(post);
-
-  //     const newPost = {
-  //         title: post.title,
-  //         content: post.content,
-  //         authorID: new ObjectId(post.authorID),
-  //         createdAt: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 }),
-  //     };
-
-  //     await db.collection('posts').insertOne(newPost);
-  //     res.send('Created new post');
-  // } catch (error) {
-  //     next(error);
-  // }
 });
 
 module.exports = router;

@@ -1,5 +1,3 @@
-
-
 body{
   margin: 0;
   background-color: #D6CCC2;
@@ -86,6 +84,40 @@ header{
   75% {background-color: rgba(0, 0, 0, 0.205);}
   80% {background-color: rgba(0, 0, 0, 0.164);}
 }
+
+/* login */
+.stopMotion{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #81766ca1
+}
+.login{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+.submitUser{
+  cursor: pointer;
+  transition: .3s ease;
+  text-align: center;
+  background-color: #A5978B;
+  color: white;
+}
+.submitUser:hover{
+  background-color: #81766c;
+  color: lightgray;
+}
+.login input{
+  padding: 1% 2%;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
 /* about */
 .about{
   display: grid;
@@ -158,7 +190,7 @@ header{
   align-items: center;
   text-align: center;
 }
-.good img, .added_item_description img{
+.good img{
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7479%) hue-rotate(12deg) brightness(101%) contrast(105%);
 }
 
@@ -179,18 +211,21 @@ header{
   box-shadow: rgba(0, 0, 0, 0.041) 0px 1px 3px 2px;
   transition: .3s ease;
   cursor: pointer;
+  color: black;
 }
 .added_items:hover{
   background-color: #ad9f93;
+  color: white;
 }
-.added_item_description p{
-  margin: 0;
+
+.added_item_description p, .added_item_description h4{
+  margin: 0%; 
 }.added_item_description h4{
-  margin: 0%;
   margin-bottom: 10%;
 }.added_item_description img{
   transition: .3s ease;
-}.added_items:hover img{
+}
+.added_items:hover img{
   filter: brightness(0) saturate(100%) invert(7%) sepia(99%) saturate(7477%) hue-rotate(18deg) brightness(83%) contrast(114%);
 }
 
@@ -200,7 +235,7 @@ header{
 .stock{
   color: #A5978B;
 }
-.col{
+.col, .noHoverCol{
   display: block;
   transition: .3s ease;
   padding: 2%;
@@ -227,7 +262,9 @@ header{
   width: 25%;
 }
 .row_description{
+  max-height: fit-content;
   padding: 5%;
+  margin-bottom: 5%;
 }
 .row_description h3{
   font-family: "DM Serif Display", system-ui;
@@ -236,6 +273,7 @@ header{
 .more{
   cursor:pointer;
   transition: .3s ease;
+  margin-top: 5%;
   padding: 5%;
   text-align: center;
 }
@@ -262,12 +300,12 @@ header{
 }
 .incentive#sold-out{
   background-color: #A5978B;
+  
 }
 .incentive#limited-time{
   background-color: #ba181b;
 }
-
-.col:hover:not(#label){
+.col:hover{
   color: black;
   background-color: #F5EBE0;
 }
@@ -277,7 +315,7 @@ header{
   transition: .3s ease;
   margin: 2%;
 }
-.shop_image:hover, .col:hover .shop_image{
+.col:hover .shop_image{
   transform: scale(102%);
 }
 
@@ -299,9 +337,9 @@ header{
   align-self: center;
   background-color: #A5978B;
   transition: .3s ease;
-  cursor: pointer;
 }
-.cart:hover, .col:hover .cart{
+.col:hover .cart{
+  cursor: pointer;
   background-color: white;
   transform: translateY(-2px);
 }

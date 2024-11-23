@@ -10,7 +10,7 @@
             <li class="brand">ESSENCE</li>
             <div class="side">
                 <li>Cart</li>
-                <li>Login</li>
+                <li>Account</li>
             </div>
         </ul>
         <div class="branding">
@@ -20,6 +20,15 @@
         </div>
     </div>
 </header>
+
+{{!-- Account Logins
+<div class="stopMotion">
+    <div class="login">
+        <h1>We've been expecting you...</h1>
+        <input type="text" placeholder="Enter your name" class="username">
+        <input type="submit" value="Login" class="submitUser">
+    </div>
+</div> --}}
 
 <div class="about">
     <div class="blank" id="b_grid">
@@ -58,16 +67,20 @@
                 <h3>Shopping Cart</h3>
                 <p class="empty_cart">Your cart is empty.</p>
 
-                {{!-- <div class="added_items">
-                    <div class="added_item_description" id="pd">
-                        <h4>Product Name</h4>
-                        <p>Qauntity: 1</p>
-                    </div>
-                    <div class="added_item_description">
-                        <img src="https://www.svgrepo.com/show/502812/remove.svg" width="30px">
-                        <p>$20</p>
-                    </div>
-                </div> --}}
+                {{#each cartItems}}
+                    {{#each this.product}}
+                        <div class="added_items" id="{{this._id}}">
+                            <div class="added_item_description">
+                                <h4>{{this.name}}</h4>
+                                <p>Qauntity: 1</p>
+                            </div>
+                            <div class="added_item_description">
+                                <img class="removeIcon" src="https://www.svgrepo.com/show/502812/remove.svg" width="30px">
+                                <p>${{this.price}}</p>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/each}}
 
             </div>
                 <b class="more">PURCHASE</b>
