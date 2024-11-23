@@ -7,6 +7,12 @@
 </form>
 
 <h1>{{title}}</h1>
+<form id="search_form">
+    <label>Search posts</label>
+    <input type="text" name="search" placeholder="Search">
+    <input type="submit" value="Search">
+</form>
+<div id="posts">
 {{#each posts}}
     <div class="post" id="{{this._id}}">
         <h2>{{this.title}}</h2>
@@ -32,5 +38,6 @@
         </form>
     </div>
 {{/each}}
+</div>
 
 

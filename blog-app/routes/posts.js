@@ -6,16 +6,39 @@ const cloudinary = require('../config/cloudinary');
 
 // GET all posts
 router.get('/', async function (req, res, next) {
+    const searchParams = req.query;
+    console.log(searchParams);
     try {
         const db = req.app.locals.db;  // Access the shared database instance
-        const posts = await db.collection('posts').aggregate([{
-            $lookup: {
-                from: 'users',                // The collection to join
-                localField: 'authorID',       // Field from `posts`
-                foreignField: '_id',          // Field from `users`
-                as: 'authors'              // Output array containing matched users
-            }
-        }]).toArray();
+        const posts = await db.collection('posts')
+            .aggregate([
+                {
+                    $match: {
+                        $or: [
+                            { title: { $regex: searchParams.q, $options: 'i' } }, // Case-insensitive match in title
+                            { content: { $regex: searchParams.q, $options: 'i' } } // Case-insensitive match in content
+                        ]
+                    }
+                },
+                {
+                    $lookup: {
+                        from: 'users',                // The collection to join
+                        localField: 'authorID',       // Field from `posts`
+                        foreignField: '_id',          // Field from `users`
+                        as: 'authors'              // Output array containing matched users
+                    }
+                },
+                {
+                    $lookup: {
+                        from: 'comments',             // Join with the `comments` collection
+                        localField: '_id',            // Field from `posts` (post ID)
+                        foreignField: 'postID',       // Field from `comments` (reference to post ID)
+                        as: 'comments'                // Output array containing matched comments
+                    }
+                },
+            ])
+            .sort({createdAt: -1}) // Sort descending by `createdAt`
+            .toArray();
         res.json(posts);
     } catch (error) {
         next(error);

@@ -26,7 +26,6 @@ router.get('/', async function (req, res, next) {
             ])
             .sort({createdAt: -1}) // Sort descending by `createdAt`
             .toArray();
-        console.log(posts)
         res.render('index', {title: 'Posts', posts});
     } catch (error) {
         console.log(error);
