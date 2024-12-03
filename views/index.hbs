@@ -4,30 +4,47 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>About Me</title>
+      <title>Animal Fun Facts</title>
       <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
     <h1>Animal Fun Facts</h1>
+
+    <form action="/" method="POST">
+      <input type="text" name="name" placeholder="Animal Name" required>
+      <input type="text" name="habitatName" placeholder="Habitat" required>
+      <input type="text" name="funFact" placeholder="Fun Fact" required>
+      <button type="submit">Add Animal</button>
+    </form>
+
     <ul class="animal-list">
       {{#each animals}}
         <li class="animal-item">
-          <p>Name: {{this.name}}</p>
+          <p>{{this.name}}</p>
           <p>Habitat: 
             {{#if this.habitatDetails.length}}
-              {{this.habitatDetails.0.habitatName}} 
+              {{this.habitatDetails.[0].habitatName}}
             {{else}}
               N/A
             {{/if}}
           </p>
           <p>Fun Fact: {{this.funFact}}</p>
+                    
+          <form onsubmit="updateAnimal(event, '{{this._id}}')">
+            <input type="text" name="name" value="{{this.name}}" placeholder="Animal Name">
+            <input type="text" name="habitatName" value="{{this.habitatDetails.[0].habitatName}}" placeholder="Habitat">
+            <input type="text" name="funFact" value="{{this.funFact}}" placeholder="Fun Fact">
+            <button type="submit">Update Animal</button>
+          </form>
+
+          <button onclick="deleteAnimal('{{this._id}}')">Delete Animal</button>
         </li>
       {{/each}}
     </ul>
+
     <script src="/javascripts/script.js"></script>
   </body>
 </html>
-
 
 
 
