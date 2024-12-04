@@ -46,4 +46,15 @@ router.put('/', async function(req, res){
     }
 })
 
+router.delete('/:id', async function (req, res){
+    //console.log(req.params.id)
+    try {
+        const db = req.app.locals.db;
+        await db.collection('employees')
+            .deleteOne({_id: new ObjectId(req.params.id)})
+    } catch (error) {
+        console.log('error when deleting data!!!')
+    }
+})
+
 module.exports = router;

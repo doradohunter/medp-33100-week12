@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
             })
             employee.appendChild(saveButton)
         });
+
+        const deleteButton = employee.querySelector('.deleteButton')
+        deleteButton.addEventListener('click', async ()=>{
+            await deleteEmployee(employee.id)
+            location.reload();
+        })
     });
 
     async function updateEmployee(info) {
@@ -66,5 +72,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
             },
             body: JSON.stringify(info)
         })
-    } 
+    }
+    
+    async function deleteEmployee(employeeID) {
+        fetch('/employees/' + employeeID, {
+            method: 'DELETE',
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // },
+            // body: JSON.stringify(info)
+        })
+    }
 })
