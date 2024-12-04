@@ -7,6 +7,18 @@ a {
   color: #00B7FF;
 }
 
+.buttons{
+  border: none;
+  border-radius: 7px;
+  background-color: #E6E6E6;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.buttons:hover{
+  background-color: #C9C9C9;
+}
+
 .bold{
   font-weight: bold;
 }
@@ -19,4 +31,17 @@ a {
 
 .deleteButton{
   float: right;
+  color: #E41B17;
+}
+
+#new-employee{
+  border: 5px deepskyblue solid;
+  display: none;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+#add-button{
+  font-size: larger;
+  margin-bottom: 15px;
 }

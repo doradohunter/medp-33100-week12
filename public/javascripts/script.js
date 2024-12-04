@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', ()=>{
+    // pop up menu
+    const addButton = document.querySelector('#add-button');
+    addButton.addEventListener('click', ()=>{
+        if (newEmployeeForm.style.display === "block") {
+            newEmployeeForm.style.display = "none";
+        } else {
+            newEmployeeForm.style.display = "block";
+        }
+    })
+
     //add new employee
     const newEmployeeForm = document.querySelector('#new-employee')
     newEmployeeForm.addEventListener('submit', (e)=>{
@@ -57,6 +67,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             employee.appendChild(saveButton)
         });
 
+        // delete employee
         const deleteButton = employee.querySelector('.deleteButton')
         deleteButton.addEventListener('click', async ()=>{
             await deleteEmployee(employee.id)
