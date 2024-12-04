@@ -42,24 +42,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
             const saveButton = document.createElement('button')
             saveButton.classList.add("saveButton");
             saveButton.innerText = "Save Changes"
-            saveButton.addEventListener('click', ()=>{
+            saveButton.addEventListener('click', async ()=>{
                 const updatedName = nameEdit.value;
                 const updatedEmail = emailEdit.value;
 
                 const updatedInfo = {
+                    id: employee.id,
                     name: updatedName,
                     email: updatedEmail,
-                    department: employee.querySelector('.department').getAttribute('depID'),
-                    title: employee.querySelector('.title').getAttribute('titleID'),
                 }
-
-                updateEmployee(updatedInfo);
+                await updateEmployee(updatedInfo)
+                location.reload();
             })
             employee.appendChild(saveButton)
         });
     });
 
     async function updateEmployee(info) {
-        fetch('')
+        fetch('/employees', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
     } 
 })

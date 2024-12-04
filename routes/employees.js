@@ -17,13 +17,33 @@ router.post('/', async function(req, res){
             depID: new ObjectId(req.body.depID),
             titleID: new ObjectId(req.body.titleID)
         }
-        employees = await db.collection('employees')
+        await db.collection('employees')
             .insertOne(newEmployee)
             res.send('we got it!')
     } catch (error) {
         console.log('uh oh :(')
     }
     
+})
+
+router.put('/', async function(req, res){
+    console.log('pulling!~')
+    try {
+        const db = req.app.locals.db;
+        const test= await db.collection('employees')
+            // .find({_id: new ObjectId(req.body.id)})
+            // .toArray()
+            .updateOne(
+                {_id: new ObjectId(req.body.id)},
+                {$set: {
+                    name: req.body.name,
+                    email: req.body.email
+                }}
+            )
+        console.log(test)
+    } catch (error) {
+        console.log('error when updating!!!')
+    }
 })
 
 module.exports = router;
