@@ -1,11 +1,19 @@
 <h1 class='title'>{{title}}</h1>
 
+<form id='post-habit'>
+  <input type='text' name='activity' placeholder='activity' />
+  <input type='text' name='category' placeholder='category' />
+  <input type='text' name='description' placeholder='description' />
+  <input type='number' name='frequency' placeholder='frequency' />
+  <input type='submit' value='submit' />
+</form>
+
 <div class='habits'>
   {{#each habits}}
     <div class='each-habit'>
       <h2>{{this.activity}}</h2>
       <p>{{this.category}}</p>
-      <p>{{this.descripition}}</p>
+      <p>{{this.description}}</p>
       <p>Frequency per week: {{this.frequency}}</p>
     </div>
   {{/each}}
