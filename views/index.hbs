@@ -1,15 +1,27 @@
 <h1>{{title}}</h1>
+{{!-- <button>New Employee</button> --}}
+<form id="new-employee">
+    <h2>Add New Employee</h2>
+    <label class="bold" for="nameInput">Name:</label>
+    <input type="text" id="nameInput" name="nameInput"><br><br>
+    <label class="bold" for="emailInput">Email:</label>
+    <input type="text" id="emailInput" name="emailInput"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
 {{#each employees}}
     <div class="employee" id="{{this._id}}">
-        <h2>{{this.name}}</h2>
-        <p><span class="bold">Email:</span> {{this.email}}</p>
+        <button class="deleteButton">Delete</button>
+        <h2 class="name">{{this.name}}</h2>
+        <p><span class="bold">Email:</span> <span class="email">{{this.email}}</span></p>
         
         {{#each department}}
-            <p><span class="bold">Department:</span> {{this.dep_name}}</p>
+            <p><span class="bold">Department:</span> <span class="department" depID="{{this._id}}">{{this.dep_name}}</span></p>
         {{/each}}
 
         {{#each title}}
-            <p><span class="bold">Job Title:</span> {{this.title_name}}</p>
+            <p><span class="bold">Job Title:</span> <span class="title" titleID="{{this._id}}">{{this.title_name}}</span></p>
         {{/each}}
+        <button class="editButton">Edit</button>
     </div>
 {{/each}}

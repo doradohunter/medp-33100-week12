@@ -16,3 +16,7 @@ a {
   padding: 15px;
   margin-bottom: 10px;
 }
+
+.deleteButton{
+  float: right;
+}
