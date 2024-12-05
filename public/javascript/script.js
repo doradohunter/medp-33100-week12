@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#post-habit');
+  const allHabits = document.querySelectorAll('.each-habit');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -19,6 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formDataObject),
+    });
+  });
+
+  allHabits.forEach((habit) => {
+    const edit = habit.querySelector('.edit-button');
+    edit.addEventListener('click', () => {
+      const activity = habit.querySelector('.activity');
+
+      const activityInput = document.createElement('input');
+      activityInput.value = activity.innerText;
+
+      activity.innerHTML = '';
+      activity.appendChild(activityInput);
     });
   });
 });
