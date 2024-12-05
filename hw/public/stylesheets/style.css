@@ -7,15 +7,17 @@
 body {
   padding: 50px;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  flex-wrap: wrap;
+  
   height: 100vh; 
   margin: 0;
 }
 
-
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-wrap: wrap;
+}
 
 .album {
   border-radius: 10px;

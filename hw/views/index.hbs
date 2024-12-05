@@ -1,12 +1,22 @@
 <h1>Green Day Albums</h1>
 
-<div class="container"></div>
+<h3>Add New Album</h3>
+<form id="post_form">
+    <h3>Add New Album</h3>
+    <input type="text" name="title" placeholder="Album Title" required><br>
+    <input type="text" name="release_date" placeholder="Release Date" required><br>
+    <input type="text" name="tracks" placeholder="Tracks" required><br>
+    <input type="text" name="color" placeholder="Background Color"><br>
+    <input id="submit_button" type="submit" value="Add Album">
+</form>
+
+<div class="container">
 {{#each albums}}
         <div class="album" style="background-color: {{this.color}}">
-            <img src="{{this.url}}">
-            <h1>{{this.title}}</h1>
-            <h3>Release Date: {{this.release_date}}</h3>
-            <h3>Tracks: {{this.tracks}}</h3>
+            <h1 class="title">{{this.title}}</h1>
+            <h3 class="release_date">Release Date: {{this.release_date}}</h3>
+            <h3 class="tracks">Tracks: {{this.tracks}}</h3>
+            <button class="edit_button">Edit</button>
         </div>
 {{/each}} 
 </div>
