@@ -1,4 +1,5 @@
 var express = require('express');
+const { ObjectId } = require('mongodb');
 var router = express.Router();
 
 /* GET users listing. */
@@ -24,5 +25,18 @@ router.post('/', async function (req, res) {
     console.error('Error inserting document:', error);
   }
 });
+
+router.put('/', async function (req, res) {
+  try {
+    const db = req.app.locals.db;
+    await db.collection('habits').updateOne(
+      { activity: req.body.activity },
+      { $set: { activity: req.body.activity } }
+    );    
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 
 module.exports = router;
