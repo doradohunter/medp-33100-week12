@@ -1,0 +1,24 @@
+<h1> Our {{title}}</h1>
+<p>Welcome to the {{title}} Database</p>
+
+{{#each books}}
+    <div class="book">
+        <h2>{{this.title}}</h2>
+        <img src="/images/error-image.jpg">
+        <p>By: {{this.author}}</p>
+        <p>Copies Available: {{this.availableCopies}}</p>
+        <button class="edit-button" data-book-id="{{this._id}}">Process Return</button>
+        <button class="ban-button" data-book-id="{{this._id}}">BAN BOOK</button>
+        
+    </div>
+    <h3>Borrowers: </h3>
+    {{#each borrowers}}
+        <li>{{name}}</li>
+    {{/each}}
+{{/each}}
+
+<form id="signupForm">
+    <h3>New Library Member Sign Up:</h3>
+    <input type="text" id="username" name="name">
+    <input type="submit" value="Add Member">
+</form>
