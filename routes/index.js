@@ -18,8 +18,6 @@ router.get('/', async function(req, res, next) {
           }
         ])
         .toArray();
-        console.log(books[4])
-        console.log(books[4].borrowers)
         res.render('index', { title: 'Library', books: books});
     } catch(error){
       console.log(error);
