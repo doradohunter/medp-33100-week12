@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tea, Users, and Comments</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <div class="section">
+    <h1>Tea Collection</h1>
+    {{#if teas}}
+      <ul id="tea-list">
+        {{#each teas}}
+          <li data-id="{{this._id}}">
+            <strong>{{this.name}}</strong><br>
+            Type: {{this.type}}<br>
+            Origin: {{this.origin}}<br>
+            Brew Temperature: {{this.brewTemperature}}°C<br>
+            Brew Time: {{this.brewTimeMinutes}} minutes
+            <button class="edit-tea">Edit</button>
+            <button class="delete-tea">Delete</button>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No teas found in the collection.</p>
+    {{/if}}
+    <form id="add-tea-form">
+      <h2>Add New Tea</h2>
+      <input type="text" name="name" placeholder="Tea Name" required>
+      <input type="text" name="type" placeholder="Type" required>
+      <input type="text" name="origin" placeholder="Origin" required>
+      <input type="number" name="brewTemperature" placeholder="Brew Temp (°C)" required>
+      <input type="number" name="brewTimeMinutes" placeholder="Brew Time (min)" required>
+      <button type="submit">Add Tea</button>
+    </form>
+  </div>
+
+  <script>
+    $(document).ready(() => {
+      // Add a new tea
+      $('#add-tea-form').on('submit', function(e) {
+        e.preventDefault();
+        const teaData = $(this).serialize();
+
+        $.post('/teas', teaData, (response) => {
+          alert(response.message);
+          location.reload();
+        }).fail(() => {
+          alert('Failed to add tea.');
+        });
+      });
+
+      // Edit an existing tea
+      $('.edit-tea').on('click', function() {
+        const teaId = $(this).closest('li').data('id');
+        const newName = prompt('Enter new name:');
+
+        if (newName) {
+          $.ajax({
+            url: `/teas/${teaId}`,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({ name: newName }),
+            success: (response) => {
+              alert(response.message);
+              location.reload();
+            },
+            error: () => {
+              alert('Failed to update tea.');
+            }
+          });
+        }
+      });
+
+      // Delete a tea
+      $('.delete-tea').on('click', function() {
+        const teaId = $(this).closest('li').data('id');
+
+        if (confirm('Are you sure you want to delete this tea?')) {
+          $.ajax({
+            url: `/teas/${teaId}`,
+            method: 'DELETE',
+            success: (response) => {
+              alert(response.message);
+              location.reload();
+            },
+            error: () => {
+              alert('Failed to delete tea.');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
