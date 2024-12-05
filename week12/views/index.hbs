@@ -1,0 +1,39 @@
+<h1>Welcome to {{title}}!</h1>
+
+<h2>Knights</h2>
+{{#each knights}}
+<div class="knights">
+    <h2>{{this.name}}</h2>
+    <p>Birthday: {{this.birthday}}</p>
+    <p>{{this.about}}</p>
+    <div class="from">
+        <p>{{this.from}}</p>
+    </div>
+</div>
+{{/each}}
+
+<h2>Events</h2>
+<div class="events-container">
+    {{#each events}}
+    <div class="events" data-id="{{this._id}}">
+        <p><strong>Event Name:</strong> {{this.eventname}}</p>
+        <p><strong>Event Score Rank:</strong> {{this.eventscorerank}}</p>
+        <p><strong>Event Point Rank:</strong> {{this.eventpointrank}}</p>
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+    </div>
+    {{/each}}
+</div>
+
+<h3>Add or Edit Event</h3>
+<form id="event_form">
+    <label for="eventname">Event Name</label>
+    <input type="text" id="eventname" name="eventname" required>
+    <label for="eventscorerank">Event Score Rank:</label>
+    <input type="text" id="eventscorerank" name="eventscorerank" required>
+    <br>
+    <label for="eventpointrank">Event Point Rank:</label>
+    <input type="text" id="eventpointrank" name="eventpointrank" required>
+    <br>
+    <button type="submit">Add Event</button>
+</form>
